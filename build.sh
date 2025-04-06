@@ -513,6 +513,7 @@ script_echo "I: Yay! Kernel build is done!"
 script_echo "   Kernel build took ${BUILD_TIME_STR}"
 script_echo "   File can be found at:"
 script_echo "   \"$OUT_DIR/$ZIP_NAME\""
+cat "$BUILD_CONFIG_DIR/$BUILD_DEVICE_TMP_CONFIG" | grep CONFIG_KSU
 rm -f "$BUILD_CONFIG_DIR/$BUILD_DEVICE_TMP_CONFIG"
 sleep 5
 
