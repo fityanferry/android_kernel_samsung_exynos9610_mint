@@ -1542,7 +1542,7 @@ bypass_orig_flow:
 	int nsflags;
 #endif
 
-	mnt = alloc_vfsmnt(old->mnt_devname);
+        mnt = alloc_vfsmnt(old->mnt_devname, false, 0);
 	if (!mnt)
 		return ERR_PTR(-ENOMEM);
 
