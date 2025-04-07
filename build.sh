@@ -459,12 +459,12 @@ if [[ "$BUILD_KERNEL_KSU" == "true" ]]; then
   patch -p1 < latest.patch
   cd -
   patch -p1 < 50_add_susfs_in_kernel-4.14.patch
-  wget -P fs/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/dcache.c
-  wget -P fs/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/namespace.c
-  wget -P fs/notify/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/fdinfo.c
-  wget -P fs/proc/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/cmdline.c
-  wget -P fs/proc/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/task_mmu.c
-  wget -P fs/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/readdir.c
+  wget -P fs/ -O dcache.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/dcache.c
+  wget -P fs/ -O namespace.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/namespace.c
+  wget -P fs/notify/ -O fdinfo.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/fdinfo.c
+  wget -P fs/proc/ -O cmdline.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/cmdline.c
+  wget -P fs/proc/ -O task_mmu.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/task_mmu.c
+  wget -P fs/ -O readdir.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/readdir.c
   script_echo "Finished add susfs"
 fi
 
