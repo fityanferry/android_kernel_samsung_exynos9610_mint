@@ -448,6 +448,26 @@ VERIFY_DEFCONFIG
 
 git submodule update --init "$TOP/KernelSU-Next"
 
+if [[ "$BUILD_KERNEL_KSU" == "true" ]]; then
+  script_echo "Add susfs"
+  git clone --single-branch --branch kernel-4.14 https://gitlab.com/simonpunk/susfs4ksu.git
+  cp susfs4ksu/kernel_patches/50_add_susfs_in_kernel-4.14.patch .
+  cp susfs4ksu/kernel_patches/fs/* fs/
+  cp susfs4ksu/kernel_patches/include/linux/* include/linux/
+  cd KernelSU-Next
+  wget https://raw.githubusercontent.com/fferry98/patch-kernel/refs/heads/main/latest.patch
+  patch -p1 < latest.patch
+  cd -
+  patch -p1 < 50_add_susfs_in_kernel-4.14.patch
+  wget -P fs/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/dcache.c
+  wget -P fs/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/namespace.c
+  wget -P fs/notify/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/fdinfo.c
+  wget -P fs/proc/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/cmdline.c
+  wget -P fs/proc/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/task_mmu.c
+  wget -P fs/ https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/readdir.c
+  script_echo "Finished add susfs"
+fi
+
 if $BUILD_KERNEL_CI; then
 	export KBUILD_BUILD_USER="Clembot"
 	export KBUILD_BUILD_HOST="Lumiose-CI"
