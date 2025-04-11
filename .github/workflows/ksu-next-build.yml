@@ -1,4 +1,4 @@
-name: Minimal Testing
+name: KernelSU-Next Build
 
 on:
   workflow_dispatch:
