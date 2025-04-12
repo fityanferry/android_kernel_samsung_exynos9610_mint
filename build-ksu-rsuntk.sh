@@ -466,14 +466,17 @@ if [[ "$BUILD_KERNEL_KSU" == "true" ]]; then
   cp susfs4ksu/kernel_patches/include/linux/* include/linux/
   cd KernelSU
   patch -p1 < 10_enable_susfs_for_ksu.patch
+  wget -O KernelSU/kernel/apk_sign.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/apk_sign.c
+  wget -O KernelSU/kernel/core_hook.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/core_hook.c
+  # wget -O KernelSU/kernel/sucompat.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/sucompat.c
   cd -
   patch -p1 < 50_add_susfs_in_kernel-4.14.patch
-  # wget -O fs/dcache.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/dcache.c
-  # wget -O fs/namespace.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/namespace.c
-  # wget -O fs/notify/fdinfo.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/fdinfo.c
-  # wget -O fs/proc/cmdline.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/cmdline.c
-  # wget -O fs/proc/task_mmu.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/task_mmu.c
-  # wget -O fs/readdir.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/readdir.c
+  wget -O fs/dcache.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/dcache.c
+  wget -O fs/namespace.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/namespace.c
+  wget -O fs/notify/fdinfo.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/fdinfo.c
+  wget -O fs/proc/cmdline.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/cmdline.c
+  wget -O fs/proc/task_mmu.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/task_mmu.c
+  wget -O fs/readdir.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/readdir.c
   script_echo "Finished add susfs"
 fi
 
