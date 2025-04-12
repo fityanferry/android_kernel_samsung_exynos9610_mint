@@ -466,9 +466,9 @@ if [[ "$BUILD_KERNEL_KSU" == "true" ]]; then
   cp susfs4ksu/kernel_patches/include/linux/* include/linux/
   cd KernelSU
   patch -p1 < 10_enable_susfs_for_ksu.patch
-  wget -O KernelSU/kernel/apk_sign.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/apk_sign.c
-  wget -O KernelSU/kernel/core_hook.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/core_hook.c
-  # wget -O KernelSU/kernel/sucompat.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/sucompat.c
+  wget -O kernel/apk_sign.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/apk_sign.c
+  wget -O kernel/core_hook.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/core_hook.c
+  # wget -O kernel/sucompat.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/sucompat.c
   cd -
   patch -p1 < 50_add_susfs_in_kernel-4.14.patch
   wget -O fs/dcache.c https://raw.githubusercontent.com/fityanferry/android_kernel_samsung_exynos9610_mint/refs/heads/manual-patch-susfs/dcache.c
