@@ -12,7 +12,7 @@ jobs:
       matrix:
         type:
           [
-            aosp-12-e,
+            oneui-12-e,
           ]
 
     steps:
